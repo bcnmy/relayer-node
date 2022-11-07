@@ -1,4 +1,4 @@
-**CONTRIBUTING**
+# CONTRIBUTING
 
 Contributing to Biconomy project
 A big welcome and thank you for considering contributing to Biconomy open source project! It’s people like you that make it a reality for users in our community.
@@ -12,11 +12,11 @@ Quicklinks
 - Pull Requests
 - Getting Help
 
-**Code of Conduct**.   
-We take our open source community seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our Code of Conduct.
+## Code of Conduct.   
+We take our open source community seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [code of conduct](./code_of_conduct.md).
 
 
-**Getting Started**.  
+## Getting Started.  
 Contributions are made to this repo via Issues and Pull Requests (PRs). A few general guidelines that cover both:
 - To report security vulnerabilities, please use our Responsible Disclosure Program which is monitored by our security team.
 - Search for existing Issues and PRs before creating your own.
@@ -24,12 +24,12 @@ Contributions are made to this repo via Issues and Pull Requests (PRs). A few ge
 We work hard to make sure issues are handled in a timely manner but, depending on the impact, it could take a while to investigate the root cause. A friendly ping in the comment thread to the submitter or a contributor can help draw attention if your issue is blocking.
 If you've never contributed before, see the first timer's guide on our blog for resources and tips on how to get started.
 
-**Issues**. 
+## Issues. 
 Issues should be used to report problems with the library, request a new feature, or to discuss potential changes before a PR is created. When you create a new Issue, a template will be loaded that will guide you through collecting and providing the information we need to investigate.
 
 If you find an Issue that addresses the problem you're having, please add your own reproduction information to the existing issue rather than creating a new one. Adding a reaction can also help be indicating to our maintainers that a particular problem is affecting more than just the reporter.
 
-**Pull Requests**.  
+## Pull Requests.  
 PRs to our libraries are always welcome and can be a quick way to get your fix or improvement slated for the next release. In general, PRs should:
 
 - Only fix/add the functionality in question OR address wide-spread whitespace/style issues, not both.
@@ -54,6 +54,9 @@ In general, we follow the "fork-and-pull" Git workflow
 - Push changes to your fork
 - Open a PR in our repository and follow the PR template so that we can efficiently review the changes.
 
-**Getting Help**.  
+## Getting Help.  
 Join us in the biconomy Community and post your question there in the correct category with a descriptive tag.
 
+
+## Vulnerability issues.  
+You can responsibly disclose flaws by emailing us at security@biconomy.io 
