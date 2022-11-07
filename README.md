@@ -1,5 +1,7 @@
 # Relayer Node Service
 
+For a general guideline of how to contribute, see our [contribution guidelines](./contributing.md)
+
 ## Workflow best practices
 
 ### Branching
