@@ -1,5 +1,11 @@
 # Relayer Node Service
 
+The relayer node allows anyone to spin up their own multichain relayer
+
+<div>
+    <a href="https://opensource.org/licenses/GPL-3.0"><img src="https://img.shields.io/badge/license-GPL--v3-blueviolet"/></a>
+</div>
+
 For a general guideline of how to contribute, see our [contribution guidelines](./contributing.md)
 
 ## Workflow best practices
