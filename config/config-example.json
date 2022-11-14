@@ -1,0 +1,55 @@
+{
+  "slack": {
+    "token": "",
+    "channel": ""
+  },
+  "dataSources": {
+    "mongoUrl": "",
+    "redisUrl": ""
+  },
+  "socketService": {
+    "token": "",
+    "apiKey": ""
+  },
+  "relayer": {
+    "nodePathIndex": 0
+  },
+  "queueUrl": "",
+  "simulationData": {
+    "tenderlyData": {
+      "tenderlyUser": "",
+      "tenderlyProject": "",
+      "tenderlyAccessKey": ""
+    }
+  },
+  "chains": {
+    "provider": {
+      "5": "",
+      "137": "",
+      "80001": "",
+      "97": "",
+      "420": "",
+      "421613": ""
+    }
+  },
+  "relayerManagers": [{
+    "relayerSeed": "",
+    "ownerAccountDetails": {
+      "5": {
+        "publicKey": "",
+        "privateKey": ""
+      },
+      "137": {
+        "publicKey": "",
+        "privateKey": ""
+      },
+      "80001": {
+        "publicKey": "",
+        "privateKey": ""
+      }
+    }
+  }],
+  "tokenPrice": {
+    "coinMarketCapApi": ""
+  }
+}

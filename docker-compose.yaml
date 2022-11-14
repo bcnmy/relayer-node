@@ -1,0 +1,67 @@
+
+version: "3.1"
+
+volumes:
+  redis-data:
+  mongo-data:
+  rabbitmq_log:
+  rabbitmq_data:
+
+services:
+  server:
+    container_name: api-service
+    ports:
+      - "0.0.0.0:3000:3000"
+    depends_on:
+      - mongo
+      - redis
+      - rabbitmq
+      - centrifugo
+    build:
+      dockerfile: Dockerfile
+    restart: always
+
+  redis:
+    image: redis:6.0
+    container_name: redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    restart: always
+
+  centrifugo:
+    container_name: centrifugo
+    image: centrifugo/centrifugo:v3.2.2
+    volumes:
+      - ./centrifugo_config.json:/centrifugo/config.json
+    command: centrifugo -c config.json
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+    ports:
+      - "0.0.0.0:8000:8000"
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    container_name: 'rabbitmq'
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:15672"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    ports:
+      - "0.0.0.0:5672:5672"
+      - "0.0.0.0:15672:15672"
+    volumes:
+      - rabbitmq_log:/var/log/rabbitmq
+      - rabbitmq_data:/var/lib/rabbitmq

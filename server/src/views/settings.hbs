@@ -1,0 +1,87 @@
+<!-- create a form with 3 sections of relayer, gas price and refund receiver -->
+<div>
+  <!-- heading for the relayer node service -->
+  <h2>Admin - Relayer Node Service</h2>
+  <form>
+    <!-- section to select chain id -->
+    <div style="padding-top: 10px;">
+      <label for="chainId">Chain ID</label>
+      <select id="chainId" name="chainId">
+        <option value="1">Ethereum Mainnet</option>
+        <option value="4">Rinkeby Testnet</option>
+        <option value="5">Goerli Testnet</option>
+        <option value="42">Kovan Testnet</option>
+        <option value="1337">Localhost 8545</option>
+      </select>
+    </div>
+    
+    <div>
+      <h3>Relayer</h3>
+      <!-- section to select relayer manager from dropdown -->
+      <div style="padding-top: 10px;">
+        <label for="relayerManager">Relayer Manager</label>
+        <select id="relayerManager" name="relayerManager">
+          <option value="0x0000000000000000000000000000000000000000">None</option>
+          {{#each relayerManagers}}
+          <option value="{{this.name}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <!-- update value of min relayer count -->
+       <div style="padding-top: 10px;">
+        <label for="minRelayerCount">Min Relayer Count</label>
+        <input type="number" id="minRelayerCount" name="minRelayerCount" value="{{minRelayerCount}}">
+      </div>
+
+
+      <!-- update value of max relayer count -->
+       <div style="padding-top: 10px;">
+        <label for="maxRelayerCount">Max Relayer Count</label>
+        <input type="number" id="maxRelayerCount" name="maxRelayerCount" value="{{maxRelayerCount}}">
+      </div>
+
+      <!-- update value of inactive relayer count threshold -->
+       <div style="padding-top: 10px;">
+        <label for="inactiveRelayerCountThreshold">Inactive Relayer Count Threshold</label>
+        <input type="number" id="inactiveRelayerCountThreshold" name="inactiveRelayerCountThreshold" value="{{inactiveRelayerCountThreshold}}">
+      </div>
+
+      <!-- update value of relayer pending transaction count threshold with space between divs-->
+      <!-- provide padding between div elements -->
+
+      <div style="padding-top: 10px;">
+        <label for="relayerPendingTransactionCountThreshold">Relayer Pending Transaction Count Threshold</label>
+        <input type="number" id="relayerPendingTransactionCountThreshold" name="relayerPendingTransactionCountThreshold" value="{{relayerPendingTransactionCountThreshold}}">
+      </div>
+
+
+      <!-- update value of relayer funding amount -->
+      <div style="padding-top: 10px;">
+        <label for="relayerFundingAmount">Relayer Funding Amount</label>
+        <input type="number" id="relayerFundingAmount" name="relayerFundingAmount" value="{{relayerFundingAmount}}">
+      </div>
+
+    <div>
+      <h3>Gas Price</h3>
+      <div style="padding-top: 10px;">
+        <label for="gasPrice">Multipler</label>
+        <input type="text" id="gasPriceMultiplier" name="gasPriceMultiplier" value="{{gasPriceMultiplier}}">
+      </div>
+      <div style="padding-top: 10px;">
+        <label for="gasPrice">Update Frequency</label>
+        <input type="text" id="gasPriceUpdateFrequency" name="gasPriceUpdateFrequency" value="{{gasPriceUpdateFrequency}}">
+      </div>
+    </div>
+    <div>
+      <h3>Refund Receiver</h3>
+      <div>
+        <label for="refundReceiver">Address</label>
+        <input type="text" id="refundReceiver" name="refundReceiver" value="{{refundReceiver}}">
+      </div>
+    </div>
+    <div>
+      <button type="submit">Save</button>
+    </div>
+  </form>
+</div>

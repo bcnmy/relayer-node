@@ -1,0 +1,22 @@
+{
+  "token_hmac_secret_key": "averylongsecret",
+  "admin_password": "averystrongpassword",
+  "admin_secret": "averystrongandlongsecret",
+  "api_key": "apikey",
+  "allowed_origins": ["*"],
+  "debug": true,
+  "admin": true,
+  "log_level": "debug",
+  "client_anonymous": true,
+  "client_channel_limit": 512,
+  "namespaces": [
+    {
+      "name": "relayer",
+      "publish": true,
+      "history_size": 10,
+      "history_ttl": "300s",
+      "recover": true,
+      "anonymous": false
+    }
+  ]
+}
