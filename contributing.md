@@ -4,13 +4,6 @@ A big welcome and thank you for considering contributing to Biconomy open source
 
 Reading and following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing these open source projects. In return, we will reciprocate that respect by addressing your issue, assessing changes, and helping you finalize your pull requests.
 
-Quicklinks
-- Code of Conduct
-- Getting Started
-- Issues
-- Pull Requests
-- Getting Help
-
 ## Code of Conduct.   
 We take our open source community seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [code of conduct](./code_of_conduct.md).
 
