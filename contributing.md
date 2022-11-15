@@ -51,4 +51,5 @@ Join us in the biconomy [Community](https://forum.biconomy.io/) and post your qu
 
 
 ## Vulnerability issues.  
-You can responsibly disclose flaws by emailing us at security@biconomy.io 
+You can responsibly disclose flaws by emailing us at [security@biconomy.io](mailto:security@biconomy.io) <br/>
+Read more about security best practices [here](./SECURITY.md)
