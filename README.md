@@ -98,7 +98,7 @@ git clone https://github.com/bcnmy/relayer-node.git
 git checkout main
 ```
 
-3. Install 
+3. Install dependencies. Make sure node version is 16 or above.
 ```jsx
 yarn install
 ```
