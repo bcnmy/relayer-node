@@ -178,9 +178,20 @@ yarn install
     "coinMarketCapApi": ""
   }
 }
+
+
+```
+Create a .env file and add the following:
+
+```jsx
+CONFIG_PASSPHRASE=passphrase
 ```
 
-To update the config.json.enc file run ts-node encrypt-config.ts
+Now To update the config.json.enc file: 
+
+```jsx
+CONFIG_PASSPHRASE=passphrase ts-node encrypt-config.ts
+```
 
 5. To update the configuration for chain specific parameters (provider url, currency, decimals), relayer manager, fee options, and transactions use static-config.json in the config folder.  
 
