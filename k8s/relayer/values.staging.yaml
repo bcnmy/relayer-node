@@ -1,0 +1,25 @@
+name: "relayer-server"
+replicas: 1
+relayer:
+  name: "relayer-server"
+  image: "gcr.io/biconomy-staging/sdk/relayer-node-service:latest"
+  port: "3000"
+  replicaCount: 1
+  resource:
+    requests:
+      memory: "100Mi"
+      cpu: "100m"
+    limits:
+      memory: "250Mi"
+      cpu: "250m"
+
+namespace: "sdk-staging"
+
+secret:
+  projectID: biconomy-staging
+  key: sdk-staging-relayer-node-service
+  config:
+    name: config.json.enc
+
+ingress:
+  host: sdk-relayer.staging.biconomy.io

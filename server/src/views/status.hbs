@@ -1,0 +1,115 @@
+<!-- status page of redis, mongo, rabbitmq, relayer service, network price and gas price  with readonly values-->
+<script type="text/javascript">
+  setTimeout(function(){
+    location = ''
+  },60000)
+</script>
+<div>
+  <h2>Status</h2>
+  <div>
+    <h3>Redis</h3>
+    <div style="display: inline-block;">
+      <label for="redisStatus">Active:-</label>
+      <span id="redisStatus" style="font-weight: bold;">{{redis.active}}</span>
+    </div>
+    <br/>
+    <div style="display: inline-block;">
+      <label for="redisLastUpdate">Last status update:-</label>
+      <span id="redisLastUpdate" style="font-weight: bold;">{{redis.lastUpdated}}</span>
+    </div>
+  </div>
+  <div>
+    <h3>Mongo</h3>
+    <div style="display: inline-block;">
+      <label for="mongoStatus">Active:-</label>
+      <span id="mongoStatus" style="font-weight: bold;">{{mongo.active}}</span>
+    </div>
+    <br/>
+    <div style="display: inline-block;">
+      <label for="mongoVersion">Last status update:-</label>
+      <span id="mongoVersion" style="font-weight: bold;">{{mongo.lastUpdated}}</span>
+    </div>
+  </div>
+  {{!-- <div>
+    <h3>RabbitMQ</h3>
+    <div style="display: inline-block;">
+      <label for="rabbitmqStatus">Active</label>
+      <span id="rabbitmqStatus" style="font-weight: bold;">{{rabbitmq.active}}</span>
+    </div>
+    <br/>
+    <div style="display: inline-block;">
+      <label for="rabbitmqVersion">Last status update</label>
+      <span id="rabbitmqVersion" style="font-weight: bold;">{{rabbitmq.lastUpdated}}</span>
+    </div>
+  </div> --}}
+  <!-- iterate over list of relayers based on chain id with balance and status -->
+  <div>
+    <h3>Relayers</h3>
+    {{#eachProperty relayerManager}}
+
+    <div style="display: inline-block;">
+      <label for="relayerManagerName">Relayer Manager Name:-</label>
+      <span id="relayerManagerName" style="font-weight: bold;">{{property}}</span>
+    </div>
+      {{#eachProperty value}}
+        <br/>
+        <div style="display: inline-block;">
+          <label for="chainId">Chain Id:-</label>
+          <span id="chainId" style="font-weight: bold;">{{property}}</span>
+        </div>
+        <table border='1' style='border-collapse:collapse'>
+          <thead>
+            <th>Sr. No.</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th>Balance</th>
+            <th>Nonce</th>
+          </thead>
+          <tbody>
+            {{#each value}}
+              <tr>
+                <td>{{@index}}</td>
+                <td>{{address}}</td>
+                <td>{{status}}</td>
+                <td>{{balance}}</td>
+                <td>{{nonce}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{/eachProperty}}
+    {{/eachProperty}}
+  </div>
+
+  <!-- network price of all chains with readonly values -->
+  <div>
+    <h3>Network Provider Url</h3>
+    {{#eachProperty networkService}}
+    <div>
+      <div style="display: inline-block;">
+      <label for="networkPrice">Chain id:-</label>
+      <span id="networkPrice" style="font-weight: bold;">{{property}}</span>
+      </div>
+      <div style="display: inline-block;">
+        <label for="networkStatus">Active:-</label>
+        <span id="networkStatus" style="font-weight: bold;">{{value.active}}</span>
+      </div>
+      <br/>
+    </div>
+    {{/eachProperty}}
+  </div>
+
+  <!-- gas price of all chains with readonly values -->
+  <div>
+    <h3>Token Price</h3>
+    {{#eachProperty tokenPrice.data.tokenPrice}}
+    <div style="display: inline-block;">
+      <label for="gasPrice">Chain Id</label>
+      <span id="gasPrice" style="font-weight: normal;">{{property}}:-</span>
+      <span id="gasPrice" style="font-weight: bold;">{{value}}</span>
+    </div>
+    <br/>
+
+    {{/eachProperty}}
+  </div>
+</div>

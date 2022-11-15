@@ -1,0 +1,48 @@
+{{- $replicas := .Values.replicas | int -}}
+{{- $values := .Values }}
+{{- range $i,$e := until $replicas }}
+
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ $values.relayer.name }}{{ $i }}
+  namespace: {{ $values.namespace }}
+  labels:
+    app: {{ $values.relayer.name }}
+    component: {{ $values.relayer.name }}{{ $i }}
+    {{- include "relayers-service.labels" $ | nindent 4 }}
+spec:
+  serviceName: {{ $values.name }}
+  replicas: {{ $values.relayer.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ $values.relayer.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $values.relayer.name }}
+      annotations:
+        releaseTime: {{ dateInZone "2006-01-02 15:04:05Z" (now) "UTC"| quote }} 
+    spec:
+      containers:
+      - name: {{ $values.relayer.name }}{{ $i }}
+        image: {{ $values.relayer.image }}
+        ports:
+        - containerPort: {{ $values.relayer.port }}
+        volumeMounts:
+          - mountPath: "/relayer-node/config.json.enc"
+            name: secret
+            subPath: "config.json.enc"
+        resources:
+          requests:
+            memory: {{ $values.relayer.resource.requests.memory }}
+            cpu: {{ $values.relayer.resource.requests.cpu }}
+          limits:
+            memory: {{ $values.relayer.resource.limits.memory }}
+            cpu: {{ $values.relayer.resource.limits.cpu }}
+      volumes:
+      - name: secret
+        secret:
+          secretName: {{ $values.name }}{{ $i }}
+{{- end}}

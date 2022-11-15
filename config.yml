@@ -1,0 +1,97 @@
+development:
+  chains:
+    currency:
+      1: "ETH"
+      5: "ETH"
+      56: "BNB"
+      77: "SPOA"
+      97: "BNB"
+      100: "XDAI"
+      137: "MATIC"
+      250: "FTM"
+      1284: "GLMR"
+      1285: "MOVR"
+      1287: "GLMR"
+      2021: "EDG"
+      4002: "FTM"
+      43113: "AVAX"
+      43114: "AVAX"
+      80001: "MATIC"
+      421611: "ETH"
+    decimal:
+      1: 18
+      5: 18
+      31: 8
+      42: 18
+      56: 18
+      77: 18
+      97: 18
+      100: 18
+      137: 18
+      250: 18
+      1284: 18
+      1285: 18
+      1287: 18
+      2021: 18
+      4002: 18
+      42161: 18
+      43113: 18
+      43114: 18
+      80001: 18
+      421611: 18
+    provider:
+      1: "https://eth-mainnet.alchemyapi.io/v2/8vLFyF65nIpyd1CrfhqHd7kYtetw3Y7y"
+      5: "https://eth-goerli.g.alchemy.com/v2/8vLFyF65nIpyd1CrfhqHd7kYtetw3Y7y"
+      56: "https://purple-green-cherry.bsc.quiknode.pro/undefined/"
+      77: "https://sokol.poa.network"
+      97: "https://data-seed-prebsc-2-s3.binance.org:8545/"
+      100: "https://old-crimson-silence.xdai.quiknode.pro/54b6dfe2b18b52cd8cea8bc8807e4448d0332bc5/"
+      137: "https://polygon-mainnet.g.alchemy.com/v2/s6bOKN9QDGXpVbsqzJMl_AHeZHNOCTcM"
+      250: "https://apis.ankr.com/b0b9051eea794ecfafac081a2930957c/7c06eca67a94c3bc9d466a5f1ca366d3/fantom/full/main"
+      1284: "https://moonbeam.api.onfinality.io/public"
+      1285: "https://moonriver.api.onfinality.io/rpc?apikey=833584bb-127a-4134-bec7-7bd41af5130a"
+      1287: "https://moonbeam-alpha.api.onfinality.io/rpc?apikey=833584bb-127a-4134-bec7-7bd41af5130a"
+      2021: "https://mainnet.edgewa.re/evm"
+      4002: "https://apis.ankr.com/6b774dee28d04084972d2dae89971495/7c06eca67a94c3bc9d466a5f1ca366d3/fantom/full/test"
+      42161: "https://arbitrum-mainnet.infura.io/v3/113843749d494bc39ff60007ac6d121d"
+      43113: "https://api.avax-test.network/ext/bc/C/rpc"
+      43114: "https://api.avax.network/ext/bc/C/rpc"
+      80001: "https://polygon-mumbai.g.alchemy.com/v2/OcZ3-nUEz5Pnk-y0FzLikmD6Ky_ompOf"
+      421611: "https://arbitrum-rinkeby.infura.io/v3/113843749d494bc39ff60007ac6d121d"
+    gas_price_update_frequency_in_seconds:
+      1: 12
+      5: 12
+      56: 20
+      77: 20
+      97: 100
+      100: 600
+      1285: 600
+      1287: 600
+      2021: 100
+      8995: 600
+      15001: 600
+      16110: 600
+      43113: 200
+      43114: 200
+      80001: 600
+
+  supported_transaction_type:
+    80001:
+      - "AA"
+      - "SCW"
+    137:
+      - "CROSS_CHAIN"
+  
+  relayers:
+    funding_amount:
+    no_of_relayers:
+    max_relayer_queue_size:
+  
+  errors:
+    nonce:
+
+  transaction_manager:
+    txn_hash_key_expiry_time:
+    bump_gas_price_percentage:
+      1: 25
+      5: 25
