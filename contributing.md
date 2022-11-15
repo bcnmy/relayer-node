@@ -47,7 +47,7 @@ In general, we follow the "fork-and-pull" Git workflow
 - Open a PR in our repository and follow the PR template so that we can efficiently review the changes.
 
 ## Getting Help.  
-Join us in the biconomy Community and post your question there in the correct category with a descriptive tag.
+Join us in the biconomy [Community](https://forum.biconomy.io/) and post your question there in the correct category with a descriptive tag.
 
 
 ## Vulnerability issues.  
