@@ -8,7 +8,7 @@ If you believe you have found a security vulnerability in any Biconomy-owned rep
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-Instead, please report them to the at [security@biconomy.io](mailto:security@biconomy.io).
+Instead, please report them at [security@biconomy.io](mailto:security@biconomy.io).
 
 You should receive a response within 24 hours. If for some reason you do not, please follow up via email to ensure we received your original message.
 
