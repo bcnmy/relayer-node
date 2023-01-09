@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { SymbolMapByChainIdType } from '../types';
 import { ICacheService } from '../cache';
 import { logger } from '../log-config';
 import { IScheduler } from '../scheduler';
+import { SymbolMapByChainIdType } from '../types';
+import { getTokenPriceKey } from '../utils';
 import { ITokenPrice } from './interface/ITokenPrice';
 import { NetworkSymbolCategoriesType } from './types';
-import { getTokenPriceKey } from '../utils';
 
 const log = logger(module);
 
@@ -82,6 +82,11 @@ export class CMCTokenPriceManager implements ITokenPrice, IScheduler {
     return data[symbol];
   }
 
+  /**
+   * @param chainId
+   * @param tokenAddress
+   * @returns token price in USD
+   */
   async getTokenPriceByTokenAddress(chainId: number, tokenAddress: string): Promise<number> {
     let tokenPrice: number = 0;
     try {

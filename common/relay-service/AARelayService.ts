@@ -13,6 +13,11 @@ export class AARelayService implements IRelayService<AATransactionMessageType> {
     this.queue = queue;
   }
 
+  /**
+   * Publishes the transaction to the queue
+   * @param data raw transaction data received in the request
+   * @returns transaction id
+   */
   async sendTransactionToRelayer(
     data: AATransactionMessageType,
   ): Promise<RelayServiceResponseType> {

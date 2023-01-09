@@ -12,7 +12,6 @@ import { FeeOption } from '../../server/src/services';
 import { RedisCacheService } from '../cache';
 import { Mongo, TransactionDAO } from '../db';
 import { GasPriceManager } from '../gas-price';
-import { StatusService } from '../status/StatusService';
 import { IQueue } from '../interface';
 import { logger } from '../log-config';
 import { relayerManagerTransactionTypeNameMap } from '../maps';
@@ -28,6 +27,7 @@ import {
 import { AARelayService, SCWRelayService } from '../relay-service';
 import { AASimulationService, SCWSimulationService } from '../simulation';
 import { TenderlySimulationService } from '../simulation/external-simulation';
+import { IStatusService, StatusService } from '../status';
 import { CMCTokenPriceManager } from '../token-price';
 import {
   AATransactionMessageType,
@@ -36,7 +36,6 @@ import {
   SCWTransactionMessageType,
   TransactionType,
 } from '../types';
-import { IStatusService } from '../status';
 
 const log = logger(module);
 

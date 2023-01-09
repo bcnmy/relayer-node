@@ -48,6 +48,13 @@ export class EVMNetworkService implements INetworkService<IEVMAccount, EVMRawTra
 
   // REVIEW
   // change any to some defined type
+  /**
+   * method to handle various rpc methods
+   * and fallback to other rpc urls if the current rpc url fails
+   * @param tag RpcMethod enum
+   * @param params parameters required for the rpc method
+   * @returns based on the rpc method
+   */
   useProvider = async (tag: RpcMethod, params?: any): Promise<any> => {
     let rpcUrlIndex = 0;
     // eslint-disable-next-line consistent-return
@@ -70,7 +77,6 @@ export class EVMNetworkService implements INetworkService<IEVMAccount, EVMRawTra
               return await this.ethersProvider.getTransactionCount(params.address, 'pending');
             }
             return await this.ethersProvider.getTransactionCount(params.address);
-          // TODO: Check error type
           case RpcMethod.sendTransaction:
             return await this.ethersProvider.sendTransaction(params.tx);
           case RpcMethod.waitForTransaction:
@@ -125,14 +131,27 @@ export class EVMNetworkService implements INetworkService<IEVMAccount, EVMRawTra
     return contract;
   }
 
-  // TODO: Add Comments
+  /**
+   *
+   * @param userAddress address of the user
+   * @param tokenAddress address of an ERC20 token
+   * @returns balance of the user having the token
+   */
   async getTokenBalance(userAddress: string, tokenAddress: string): Promise<BigNumber> {
     const erc20Contract = this.getContract(JSON.stringify(ERC20_ABI), tokenAddress);
     const tokenBalance = await erc20Contract.balanceOf(userAddress);
     return tokenBalance;
   }
 
-  // TODO: Add Comments
+  /**
+   * check if the user is allowed to spend the token
+   * based on the allowance set by the owner address for that spender address
+   * @param tokenAddress token contract adddress
+   * @param ownerAddress owner address whose funds are being spent
+   * @param spenderAddress spender address who is spending the funds
+   * @param value value in wei
+   * @returns if the user is allowed to spend the token
+   */
   async checkAllowance(
     tokenAddress: string,
     ownerAddress: string,
@@ -158,6 +177,15 @@ export class EVMNetworkService implements INetworkService<IEVMAccount, EVMRawTra
     const contractReadMethodValue = await contract[methodName].apply(null, params);
     return contractReadMethodValue;
   }
+
+  /**
+   * Estimate gas for a transaction
+   * @param contract contract instance
+   * @param methodName name of the method to be executed
+   * @param params parameters required for the method to be encoded
+   * @param from address of the user
+   * @returns estimate gas for the transaction in big number
+   */
 
   async estimateGas(
     contract: ethers.Contract,
@@ -185,6 +213,13 @@ export class EVMNetworkService implements INetworkService<IEVMAccount, EVMRawTra
     return transactionReceipt;
   }
 
+  /**
+   * Get the nonce of the user
+   * @param address address
+   * @param pendingNonce include the nonce of the pending transaction
+   * @returns by default returns the next nonce of the address
+   * if pendingNonce is set to false, returns the nonce of the mined transaction
+   */
   async getNonce(address: string, pendingNonce = true): Promise<number> {
     const nonce = await this.useProvider(RpcMethod.getTransactionCount, {
       pendingNonce,
@@ -207,6 +242,10 @@ export class EVMNetworkService implements INetworkService<IEVMAccount, EVMRawTra
     return receipt;
   }
 
+  /**
+   * @param transactionHash transaction hash
+   * @returns receipt of the transaction once mined, else waits for the transaction to be mined
+   */
   async waitForTransaction(transactionHash: string): Promise<ethers.providers.TransactionReceipt> {
     const transactionReceipt = await this.useProvider(RpcMethod.waitForTransaction, {
       transactionHash,

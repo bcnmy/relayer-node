@@ -6,6 +6,10 @@ import { IGasPriceManager } from './interface/IGasPriceManager';
 import { GoerliGasPrice } from './networks/GoerliGasPrice';
 import { MaticGasPrice } from './networks/PolygonGasPrice';
 import { MumbaiGasPrice } from './networks/MumbaiGasPrice';
+import { BSCTestnetGasPrice } from './networks/BSCTestnetGasPrice';
+import { OptimismGoerliGasPrice } from './networks/OptimismGoerliGasPrice';
+import { ArbitrumGoerliGasPrice } from './networks/ArbitrumGoerliGasPrice';
+import { AvalanceTestnetGasPrice } from './networks/AvalanceTestnetGasPrice';
 
 export type GasPriceServiceType = MaticGasPrice | GoerliGasPrice | MumbaiGasPrice | undefined;
 export class GasPriceManager implements IGasPriceManager<GasPriceServiceType> {
@@ -39,6 +43,14 @@ export class GasPriceManager implements IGasPriceManager<GasPriceServiceType> {
         return new GoerliGasPrice(this.cacheService, this.networkService, this.options);
       case 80001:
         return new MumbaiGasPrice(this.cacheService, this.networkService, this.options);
+      case 97:
+        return new BSCTestnetGasPrice(this.cacheService, this.networkService, this.options);
+      case 420:
+        return new OptimismGoerliGasPrice(this.cacheService, this.networkService, this.options);
+      case 421613:
+        return new ArbitrumGoerliGasPrice(this.cacheService, this.networkService, this.options);
+      case 43113:
+        return new AvalanceTestnetGasPrice(this.cacheService, this.networkService, this.options);
       default:
         return undefined;
     }

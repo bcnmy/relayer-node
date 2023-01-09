@@ -1,16 +1,8 @@
 # CONTRIBUTING
 
-Contributing to Biconomy project
 A big welcome and thank you for considering contributing to Biconomy open source project! It’s people like you that make it a reality for users in our community.
 
 Reading and following these guidelines will help us make the contribution process easy and effective for everyone involved. It also communicates that you agree to respect the time of the developers managing and developing these open source projects. In return, we will reciprocate that respect by addressing your issue, assessing changes, and helping you finalize your pull requests.
-
-Quicklinks
-- Code of Conduct
-- Getting Started
-- Issues
-- Pull Requests
-- Getting Help
 
 ## Code of Conduct.   
 We take our open source community seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our [code of conduct](./code_of_conduct.md).
@@ -55,8 +47,9 @@ In general, we follow the "fork-and-pull" Git workflow
 - Open a PR in our repository and follow the PR template so that we can efficiently review the changes.
 
 ## Getting Help.  
-Join us in the biconomy Community and post your question there in the correct category with a descriptive tag.
+Join us in the biconomy [Community](https://forum.biconomy.io/) and post your question there in the correct category with a descriptive tag.
 
 
 ## Vulnerability issues.  
-You can responsibly disclose flaws by emailing us at security@biconomy.io 
+You can responsibly disclose flaws by emailing us at [security@biconomy.io](mailto:security@biconomy.io) <br/>
+Read more about security best practices [here](./SECURITY.md)

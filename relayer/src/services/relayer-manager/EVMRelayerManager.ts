@@ -248,7 +248,7 @@ implements IRelayerManager<IEVMAccount, EVMRawTransactionType> {
     log.info(`Waiting for lock to create relayers on chainId: ${this.chainId}`);
     const release = await createRelayerMutex.acquire();
     log.info(`Received lock to create relayers on chainId ${this.chainId}`);
-    const relayersMasterSeed = this.ownerAccountDetails.getPublicKey();
+    const relayersMasterSeed = this.relayerSeed;
     const relayers: IEVMAccount[] = [];
     const relayersAddressList: string[] = [];
     try {
@@ -278,6 +278,7 @@ implements IRelayerManager<IEVMAccount, EVMRawTransactionType> {
       for (const relayer of relayers) {
         const relayerAddress = relayer.getPublicKey().toLowerCase();
         try {
+          log.info(`Creating relayer ${relayerAddress} on chainId: ${this.chainId}`);
           const balance = await this.networkService.getBalance(relayerAddress);
           const nonce = await this.nonceManager.getNonce(relayerAddress);
           this.relayerQueue.push({

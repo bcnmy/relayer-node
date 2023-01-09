@@ -29,7 +29,8 @@
       "80001": "",
       "97": "",
       "420": "",
-      "421613": ""
+      "421613": "",
+      "43113": ""
     }
   },
   "relayerManagers": [{
@@ -44,6 +45,22 @@
         "privateKey": ""
       },
       "80001": {
+        "publicKey": "",
+        "privateKey": ""
+      },
+      "97": {
+        "publicKey": "",
+        "privateKey": ""
+      },
+      "420": {
+        "publicKey": "",
+        "privateKey": ""
+      },
+      "421613": {
+        "publicKey": "",
+        "privateKey": ""
+      },
+      "43113": {
         "publicKey": "",
         "privateKey": ""
       }
