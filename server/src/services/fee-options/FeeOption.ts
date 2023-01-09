@@ -46,6 +46,10 @@ export class FeeOption {
     this.chainId = options.chainId;
   }
 
+  private static getNetworkPriceDataKey() {
+    return 'NETWORK_PRICE_DATA';
+  }
+
   async get() {
     try {
       const response: Array<FeeOptionResponseType> = [];

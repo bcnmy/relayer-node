@@ -44,5 +44,3 @@ const encryptConfig = async (
   console.log('completed');
   process.exit(1);
 };
-
-encryptConfig('averystrongpassword');

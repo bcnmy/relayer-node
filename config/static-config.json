@@ -3,7 +3,10 @@
     "wssUrl": "wss://sdk-ws.prod.biconomy.io/connection/websocket",
     "httpUrl": "https://sdk-ws.prod.biconomy.io/api"
   },
-  "supportedNetworks": [5],
+  "cacheService": {
+    "lockTTL": 10000
+  },
+  "supportedNetworks": [5, 80001, 137, 97, 420, 421613, 43113],
   "EIP1559SupportedNetworks": [],
   "supportedTransactionType": {
     "5": ["AA", "SCW"],
