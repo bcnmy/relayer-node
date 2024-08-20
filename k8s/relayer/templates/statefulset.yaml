@@ -45,4 +45,20 @@ spec:
       - name: secret
         secret:
           secretName: {{ $values.name }}{{ $i }}
+    {{- if .Values.affinity_tolerations.enable }}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: {{ .Values.affinity_tolerations.key }}
+                operator: In
+                values:
+                - {{ .Values.affinity_tolerations.values }}
+      tolerations:
+      - effect: NoSchedule
+        key: {{ .Values.affinity_tolerations.key }}
+        operator: Equal
+        value: {{ .Values.affinity_tolerations.values }}
+    {{- end }}
 {{- end}}
