@@ -23,3 +23,8 @@ secret:
 
 ingress:
   host: sdk-relayer.staging.biconomy.io
+
+affinity_tolerations:
+  enable: true
+  key: "app"
+  values: "relayer-server"
