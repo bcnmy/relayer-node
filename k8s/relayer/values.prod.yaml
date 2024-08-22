@@ -23,3 +23,13 @@ secret:
 
 ingress:
   host: sdk-relayer.prod.biconomy.io
+
+affinity_tolerations:
+  enable: true
+  key: "app"
+  values: "relayer-server"
+
+# Whether or not we want a pod disruption budget, enabled by default
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
